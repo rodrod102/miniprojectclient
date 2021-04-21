@@ -11,7 +11,7 @@ app.use('/api', bodyParser.urlencoded({ extended: false }), router);
  
 let vegetations = {
    list: [
-       { "id": 1, "name": "rose", "price": 50 }
+       { "id": 1, "name": "rose", "price": 50 },{"id": 2, "name": "ruk", "price": 40}
        ]
 }
  
