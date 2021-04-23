@@ -17,15 +17,7 @@ const homepage = () => {
         <li key={index}>
           {vegetation ? vegetation.name : "-"} :{" "}
           {vegetation ? vegetation.price : "-"} :
-        
-          <button onClick={() => deleteVegetation(vegetation.id)}>
-            {" "}
-            Delete{" "}
-          </button>
-          <button onClick={() => getVegetation(vegetation.id)}>Get</button>
-          <button onClick={() => updateVegetation(vegetation.id)}>
-            Update
-          </button>
+          <button onClick={() => getVegetation(vegetation.id)}>Get</button>        
         </li>
       ));
     else {
@@ -39,41 +31,11 @@ const homepage = () => {
     setVegetation(result.data);
   };
 
-  const addVegetation = async (name, price) => {
-    const result = await axios.post(URL, { name, price });
-    console.log(result.data);
-    mutate(URL);
-  };
-
-  const deleteVegetation = async (id) => {
-    const result = await axios.delete(`${URL}/${id}`);
-    console.log(result.data);
-    mutate(URL);
-  };
-  const updateVegetation = async (id) => {
-    const result = await axios.put(`${URL}/${id}`, {
-      name,
-      price,
-    });
-    console.log("Vegetation id update: ", result.data);
-    mutate(URL);
-  };
-
   return (
     <div>
       <h1> Vegetation</h1>
       <ul>{printVegetation(data.list)}</ul>
       selected vegetation: {vegetation.name} {vegetation.price}
-      <h2>Add student</h2>
-      Name:
-      <input type="text" onChange={(e) => setName(e.target.value)} />
-      <br />
-      Price:
-      <input type="text" onChange={(e) => setPrice(e.target.value)} />
-      <br />
-      <button onClick={() => addVegetation(name,price)}>
-        Add new Vegetation
-      </button>
     </div>
   );
 };
