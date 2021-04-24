@@ -69,7 +69,7 @@ const foradmin = () => {
       <input type="text" onChange={(e) => setName(e.target.value)} />
       <br />
       Price:
-      <input type="text" onChange={(e) => setPrice(e.target.value)} />
+      <input type="number" onChange={(e) => setPrice(e.target.value)} />
       <br />
       <button onClick={() => addVegetation(name,price)}>
         Add new Vegetation
