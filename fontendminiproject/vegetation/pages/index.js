@@ -3,6 +3,7 @@ import axios from "axios";
 import useSWR, { mutate } from "swr";
 import styles from "../styles/Home.module.css";
 import "bootstrap/dist/css/bootstrap.css";
+import Navbar from "./navbar";
 
 const URL = `http://localhost/api/vegetation`;
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -14,21 +15,24 @@ const homepage = () => {
     console.log("vegetations:", vegetations);
     if (vegetations && vegetations.length)
       return vegetations.map((vegetation, index) => (
-        <div className="container">
-          <div className="row row-cols-4">
-            <div class="col" key={index}>
-              <div className="card">
-                {vegetation ? "Name: "+vegetation.name : "-"}{"  "}
-                {vegetation ? "Price: "+vegetation.price : "-"}
+        <div className="row row-cols-4">
+          <div className="col" className={styles.product} key={index}>
+            <div className="card">
+              <h>Photo</h>
+              <div className="card-body" className={styles.btns}>
+                {vegetation ? vegetation.name : "-"}
+                {"  "}
+                Price: {vegetation ? vegetation.price : "-"} Bath
                 <button
                   type="button"
-                  class="btn btn-danger"
+                  className="btn btn-danger"
                   onClick={() => getVegetation(vegetation.id)}
                 >
                   Get
                 </button>
+              </div>
 
-                {/* <ul>
+              {/* <ul>
                   <li key={index}>
                     {vegetation ? vegetation.name : "-"} :{" "}
                     {vegetation ? vegetation.price : "-"} :
@@ -37,10 +41,9 @@ const homepage = () => {
                     </button>
                   </li>
                 </ul>{" "} */}
-              </div>
             </div>
-            <div className="product"></div>
           </div>
+          <div className="product"></div>
         </div>
       ));
     else {
@@ -57,7 +60,7 @@ const homepage = () => {
   return (
     <div className="container">
       <div className="layout">
-        <h1> Vegetation</h1>
+        <Navbar />
         <div>
           <ul>{printVegetation(data.list)}</ul>
         </div>
