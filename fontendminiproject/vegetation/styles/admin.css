@@ -1,0 +1,12 @@
+.layout {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  
+}
+.color_card{
+    background-color: burlywood;
+    height: 100%;
+    width: 300px;
+    text-align: center;
+}

@@ -15,21 +15,23 @@ const homepage = () => {
     console.log("vegetations:", vegetations);
     if (vegetations && vegetations.length)
       return vegetations.map((vegetation, index) => (
-        <div className="row row-cols-4">
-          <div className="col" className={styles.product} key={index}>
+        <div className="layout_data">
+          <div className="" className={styles.product} key={index}>
             <div className="card">
               <h>Photo</h>
               <div className="card-body" className={styles.btns}>
                 {vegetation ? vegetation.name : "-"}
                 {"  "}
                 Price: {vegetation ? vegetation.price : "-"} Bath
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  onClick={() => getVegetation(vegetation.id)}
-                >
-                  Get
-                </button>
+                <div>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => getVegetation(vegetation.id)}
+                  >
+                    เลือก
+                  </button>
+                </div>
               </div>
 
               {/* <ul>
@@ -59,12 +61,16 @@ const homepage = () => {
 
   return (
     <div className="container">
-      <div className="layout">
-        <Navbar />
-        <div>
-          <ul>{printVegetation(data.list)}</ul>
+      <Navbar />
+      <div className=" row">
+        <div className="layout_1 col-md-8">{printVegetation(data.list)}</div>
+        <div className="col-6 col-md-4">
+          {" "}
+          <div className="selectproduct ">
+
+             <div className="select_care card">selected : {vegetation.name} {vegetation.price}</div>
+          </div>
         </div>
-        selected vegetation: {vegetation.name} {vegetation.price}
       </div>
     </div>
   );

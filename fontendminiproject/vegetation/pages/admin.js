@@ -17,7 +17,6 @@ const foradmin = () => {
         <li key={index}>
           {vegetation ? vegetation.name : "-"} :{" "}
           {vegetation ? vegetation.price : "-"} :
-        
           <button onClick={() => deleteVegetation(vegetation.id)}>
             {" "}
             Delete{" "}
@@ -60,20 +59,26 @@ const foradmin = () => {
   };
 
   return (
-    <div>
-      <h1> Vegetation</h1>
-      <ul>{printVegetation(data.list)}</ul>
-      selected vegetation: {vegetation.name} {vegetation.price}
-      <h2>Add student</h2>
-      Name:
-      <input type="text" onChange={(e) => setName(e.target.value)} />
-      <br />
-      Price:
-      <input type="text" onChange={(e) => setPrice(e.target.value)} />
-      <br />
-      <button onClick={() => addVegetation(name,price)}>
-        Add new Vegetation
-      </button>
+    <div className="container">
+      <div className="layout">
+        <div className="card color_card">
+          <div className="card-body">
+            <h1> Vegetation</h1>
+            <ul>{printVegetation(data.list)}</ul>
+            selected vegetation: {vegetation.name} {vegetation.price}
+            <h2>Add student</h2>
+            Name:
+            <input type="text" onChange={(e) => setName(e.target.value)} />
+            <br />
+            Price:
+            <input type="text" onChange={(e) => setPrice(e.target.value)} />
+            <br />
+            <button onClick={() => addVegetation(name, price)}>
+              Add new Vegetation
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

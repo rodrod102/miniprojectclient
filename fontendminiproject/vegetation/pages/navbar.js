@@ -1,8 +1,14 @@
+import Link from "next/link";
+import styles from "../styles/Nav.module.css";
 const Navbar = () => {
   return (
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand">Vegetation</a>
+        <div>
+          <Link href="/">
+            <a className={styles.link_a}>Vegetation</a>
+          </Link>
+        </div>
         <form class="d-flex">
           <input
             class="form-control me-2"
