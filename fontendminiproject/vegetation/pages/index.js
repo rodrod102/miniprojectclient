@@ -4,6 +4,7 @@ import useSWR, { mutate } from "swr";
 import styles from "../styles/Home.module.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "./navbar";
+import { useRouter } from "next/router";
 
 const URL = `http://localhost/api/vegetation`;
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -52,7 +53,7 @@ const homepage = () => {
       return <h2>No vegetation</h2>;
     }
   };
-
+  const router = useRouter();
   const getVegetation = async (id) => {
     const result = await axios.get(`${URL}/${id}`);
     console.log("vegetation id: ", result.data);
@@ -67,8 +68,19 @@ const homepage = () => {
         <div className="col-6 col-md-4">
           {" "}
           <div className="selectproduct ">
-
-             <div className="select_care card">selected : {vegetation.name} {vegetation.price}</div>
+            <div className="select_care card">
+              <div>
+                selected : {vegetation.name} {vegetation.price}{" "}
+                <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => router.push("/formbuy")}
+            >
+              BUY
+            </button>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>

@@ -1,0 +1,11 @@
+.laout_form{
+    display: flex;
+    justify-content: center;
+    margin-top:150px;
+}
+.g-3, .gy-3{
+width: 500px;
+background-color: burlywood;
+border-radius: 5px;
+padding: 6px;
+}

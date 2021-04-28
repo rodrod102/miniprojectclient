@@ -63,6 +63,7 @@ const foradmin = () => {
       <div className="layout">
         <div className="card color_card">
           <div className="card-body">
+            
             <h1> Vegetation</h1>
             <ul>{printVegetation(data.list)}</ul>
             selected vegetation: {vegetation.name} {vegetation.price}

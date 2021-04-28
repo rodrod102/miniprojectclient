@@ -11,6 +11,7 @@
     background-color: bisque;
     padding: 1px;
     border-radius: 5px;
+    text-align: center;
 }
 .layout_1{
     background-color: cornflowerblue;
@@ -19,4 +20,9 @@
 }
 .select_care{
     height: 50px;
+    width: 200px;
+}
+.selectproduct{
+    text-align: center;
+    height: 800px;
 }
