@@ -79,7 +79,7 @@ router
 
   .delete((req, res) => {
     const vegetationbuy_id = req.params.vegetationbuy_id;
-    console.log("bearId: ", vegetationbuy_id);
+    console.log("vegetation_id: ", vegetationbuy_id);
     vegetationsbuy.listbuy = vegetationsbuy.listbuy.filter(
       (item) => +item.id !== +vegetationbuy_id
     );
@@ -123,7 +123,7 @@ router
 
   .delete((req, res) => {
     const vegetation_id = req.params.vegetation_id;
-    console.log("bearId: ", vegetation_id);
+    console.log("vegetation_id: ", vegetation_id);
     vegetations.list = vegetations.list.filter(
       (item) => +item.id !== +vegetation_id
     );

@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import React, { useState } from "react";
 import axios from "axios";
 import useSWR, { mutate } from "swr";
+import Navbar from "./navbar";
 
 const URL = `http://localhost/api/buy`;
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -40,6 +41,7 @@ const form = () => {
   };
   return (
     <div className="container">
+      <Navbar/>
       <div className="laout_form">
         <form class="row g-3">
           <div class="col-md-6">

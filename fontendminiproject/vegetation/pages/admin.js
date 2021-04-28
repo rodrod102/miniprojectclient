@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import useSWR, { mutate } from "swr";
+import "bootstrap/dist/css/bootstrap.css";
+import Navbar from "./navbaradmin";
 
 const URL = `http://localhost/api/vegetation`;
 const fetcher = (url) => axios.get(url).then((res) => res.data);
@@ -14,16 +16,36 @@ const foradmin = () => {
     console.log("vegetations:", vegetations);
     if (vegetations && vegetations.length)
       return vegetations.map((vegetation, index) => (
-        <li key={index}>
-          {vegetation ? vegetation.name : "-"} :{" "}
-          {vegetation ? vegetation.price : "-"} :
-          <button onClick={() => deleteVegetation(vegetation.id)}>
+        <li className="li_non" key={index}>
+          <div>
             {" "}
-            Delete{" "}
+            <label for="inputname" class="form-label">
+              {vegetation ? vegetation.name : "-"} :{" "}
+            </label>
+            <label for="inputprice" class="form-label">
+              {vegetation ? vegetation.price : "-"}
+            </label>
+          </div>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => getVegetation(vegetation.id)}
+          >
+            เลือก
           </button>
-          <button onClick={() => getVegetation(vegetation.id)}>Get</button>
-          <button onClick={() => updateVegetation(vegetation.id)}>
-            Update
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => deleteVegetation(vegetation.id)}
+          >
+            ลบ
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() => updateVegetation(vegetation.id)}
+          >
+            อัพเดท
           </button>
         </li>
       ));
@@ -60,21 +82,40 @@ const foradmin = () => {
 
   return (
     <div className="container">
+      <Navbar/>
       <div className="layout">
         <div className="card color_card">
           <div className="card-body">
-            
             <h1> Vegetation</h1>
             <ul>{printVegetation(data.list)}</ul>
-            selected vegetation: {vegetation.name} {vegetation.price}
-            <h2>Add student</h2>
+            <label for="inputSelect" class="form-label">
+              selecte: {vegetation.name} {vegetation.price}
+            </label>
+            
+            <h2>AddProduct</h2>
             Name:
-            <input type="text" onChange={(e) => setName(e.target.value)} />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="NameVegetation"
+              aria-label="NameVegetation"
+              onChange={(e) => setName(e.target.value)}
+            />
             <br />
             Price:
-            <input type="text" onChange={(e) => setPrice(e.target.value)} />
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Price"
+              aria-label="Price"
+              onChange={(e) => setPrice(e.target.value)}
+            />
             <br />
-            <button onClick={() => addVegetation(name, price)}>
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => addVegetation(name, price)}
+            >
               Add new Vegetation
             </button>
           </div>

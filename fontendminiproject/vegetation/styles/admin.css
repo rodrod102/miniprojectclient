@@ -2,11 +2,21 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  margin-top: 10px;
   
 }
 .color_card{
     background-color: burlywood;
     height: 100%;
-    width: 300px;
+    width: 500px;
     text-align: center;
+    
 }
+.li_non{
+  list-style: none;
+  padding: 4px;
+}
+.btn-danger{
+  margin: 2px !important;
+}
+
