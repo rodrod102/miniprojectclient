@@ -24,15 +24,13 @@ const homepage = () => {
                 {vegetation ? vegetation.name : "-"}
                 {"  "}
                 Price: {vegetation ? vegetation.price : "-"} Bath
-                <div>
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={() => getVegetation(vegetation.id)}
-                  >
-                    เลือก
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => getVegetation(vegetation.id)}
+                >
+                  เลือก
+                </button>
               </div>
 
               {/* <ul>
@@ -72,15 +70,14 @@ const homepage = () => {
               <div>
                 selected : {vegetation.name} {vegetation.price}{" "}
                 <button
-              type="button"
-              className="btn btn-danger"
-              onClick={() => router.push("/formbuy")}
-            >
-              BUY
-            </button>
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => router.push("/formbuy")}
+                >
+                  BUY
+                </button>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
